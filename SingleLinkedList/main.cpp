@@ -1,12 +1,53 @@
 #include "SLL.h"
 
+void PrintRev(Node** root)
+{
+	Node* traverseNode = *root;
+	if (traverseNode->nextNode == NULL)
+	{
+		*root = traverseNode;
+		return;
+	}
+	PrintRev(&traverseNode->nextNode);
+	Node* tempNode = traverseNode->nextNode;
+	tempNode->nextNode = traverseNode;
+	traverseNode->nextNode = NULL;
+}
+
+void PrintRevNode(Node** root)
+{
+	Node* traverseNode = *root;
+	if (traverseNode == NULL)
+	{
+		return;
+	}
+	PrintRevNode(&traverseNode->nextNode);
+	std::cout << traverseNode->data << "\t";
+}
+
 int main()
 {
 	int choice,subChoice, location, value;
 
 	Node* root = NULL;
 
-	std::cout << "Choose from the options : 1)Insert 2)Delete 3)Print :  ";
+	InsertBeg(&root, 10);
+	InsertBeg(&root, 20);
+	InsertBeg(&root, 30);
+	InsertBeg(&root, 40);
+	InsertBeg(&root, 50);
+	InsertBeg(&root, 60);
+	InsertBeg(&root, 70);
+	InsertBeg(&root, 80);
+	InsertBeg(&root, 90);
+	
+	PrintLL(&root);
+	
+	//PrintRevNode(&root);
+	PrintRev(&root);
+	PrintLL(&root);
+
+	std::cout << "\nChoose from the options : 1)Insert 2)Delete 3)Print :  ";
 	std::cin >> choice;
 
 	switch (choice)
@@ -97,6 +138,7 @@ int main()
 		break;
 		
 	}
+	
 
 	return 0;
 }
