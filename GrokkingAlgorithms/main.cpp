@@ -12,8 +12,8 @@ void BinarySearch(int* list, int size, int value)
 {
 	int high = size;
 	int low = 0;
-
-
+	int mid = size / 2;
+ 
 	while (low <= high)
 	{
 		int mid = (low + high) / 2;
@@ -33,12 +33,12 @@ void BinarySearch(int* list, int size, int value)
 		}
 
 	}
-
+	
 	std::cout << "Element not Found \n";
-
+	
 }
 
-int* SelectionSort(int myArray[], int size)
+int* SelectionSort(int* myArray, int size)
 {
 
 	for (int i = 0; i < size; i++)
