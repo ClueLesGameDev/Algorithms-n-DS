@@ -3,7 +3,7 @@
 void PrintRev(Node** root)
 {
 	Node* traverseNode = *root;
-	if (traverseNode->nextNode == NULL)
+	if (traverseNode->nextNode != NULL)
 	{
 		*root = traverseNode;
 		return;

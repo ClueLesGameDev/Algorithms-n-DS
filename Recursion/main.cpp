@@ -2,9 +2,9 @@
 
 void Swap(int& a, int& b)
 {
-	a = a + b;
-	b = a;
-	a = a - b;
+	int temp = a;
+	a = b;
+	b = temp;
 }
 
 int Sum(int* list, int size)
@@ -86,7 +86,7 @@ int* QuickSort(int* myArray, int low, int high)
 
 int main()
 {
-	int myArray[] = { 2,4,3,11,9,2 };
+	int myArray[] = { 2,4,3,11,9,29 };
 
 	int n = sizeof(myArray) / sizeof(myArray[0]);
 
